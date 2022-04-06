@@ -20,13 +20,15 @@ class _HomeScreenState extends State<HomeScreen> {
       "image": MyImages.stone,
       "name": "Elephant Rock",
       "money": 159.9,
-      "location": "AI-Ula, SA"
+      "location": "AI-Ula, SA",
+      "rating": 2.5
     },
     {
       "image": MyImages.mahal,
       "name": "A night in Rijal Almaa",
       "money": 753.9,
-      "location": "Asser, SA"
+      "location": "Asser, SA",
+      "rating": 4.5
     },
   ];
 
@@ -120,6 +122,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             name: myList[index]["name"],
                             location: myList[index]["location"],
                             money: myList[index]["money"],
+                            rating: myList[index]["rating"],
+
                           );
                         },
                       ),
