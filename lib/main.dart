@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:turista/src/screens/home_screen/home_screen.dart';
+import 'package:turista/src/screens/popup_screen/popup_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const PopupScreen(),
     );
   }
 }
