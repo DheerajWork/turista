@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:turista/src/custom_widgets/custom_app_bar.dart';
 import 'package:turista/src/custom_widgets/custom_bottom_bar.dart';
@@ -6,6 +8,9 @@ import 'package:turista/src/custom_widgets/my_card.dart';
 import 'package:turista/src/utils/my_colors.dart';
 import 'package:turista/src/utils/my_images.dart';
 import 'package:turista/src/utils/my_strings.dart';
+
+import '../../utils/my_style.dart';
+import '../Drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,13 +25,15 @@ class _HomeScreenState extends State<HomeScreen> {
       "image": MyImages.stone,
       "name": "Elephant Rock",
       "money": 159.9,
-      "location": "AI-Ula, SA"
+      "location": "AI-Ula, SA",
+      "rating": 2.5
     },
     {
       "image": MyImages.mahal,
       "name": "A night in Rijal Almaa",
       "money": 753.9,
-      "location": "Asser, SA"
+      "location": "Asser, SA",
+      "rating": 4.5
     },
   ];
 
@@ -35,12 +42,27 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: MyColors.white,
       bottomNavigationBar: const CustomBottomBar(),
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title:  Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(MyImages.turistaLogo,height: 65,width: 65,),
+            Text(MyStrings.turista,style: MyStyles.twentyTwoBoldBlue,)
+          ],
+        ),
+        actions: [
+          Icon(Icons.add_circle_outline,size: 30,color: Colors.black,),
+          SizedBox(width: 20,)
+        ],
+      ),
+      drawer: NavBar(),
       body: Column(
         children: [
-          const SizedBox(
-            height: 30,
-          ),
-          const CustomAppBar(),
+
           Expanded(
             child: Container(
               width: double.infinity,
@@ -120,6 +142,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             name: myList[index]["name"],
                             location: myList[index]["location"],
                             money: myList[index]["money"],
+                            rating: myList[index]["rating"],
+
                           );
                         },
                       ),

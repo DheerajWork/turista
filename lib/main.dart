@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:turista/src/screens/popup_screen/popup_screen.dart';
+import 'package:turista/src/screens/home_screen/home_screen.dart';
+import 'package:turista/src/screens/switch_to_hosting_animation_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const PopupScreen(),
+      home: const SwitchToHostingAnimationPage(),
     );
   }
 }

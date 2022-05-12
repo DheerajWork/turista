@@ -7,8 +7,9 @@ class MyCard extends StatelessWidget {
   final String? name;
   final String? location;
   final double? money;
+  final double? rating;
 
-  const MyCard({Key? key, this.img, this.name, this.location, this.money})
+  const MyCard({Key? key, this.img, this.name, this.location, this.money,this.rating})
       : super(key: key);
 
   @override
@@ -66,14 +67,18 @@ class MyCard extends StatelessWidget {
                           ),
                           const Spacer(),
                           RatingBar.builder(
+                            initialRating: rating!,
                             minRating: 1,
+                            allowHalfRating: true,
                             itemSize: 20,
+
                             itemBuilder: (BuildContext context, int _) =>
                                 const Icon(
                               Icons.star,
                               color: Colors.amber,
                             ),
                             onRatingUpdate: (double value) {},
+
                           )
                         ],
                       )
